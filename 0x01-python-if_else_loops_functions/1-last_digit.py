@@ -5,7 +5,7 @@ string_number = str(number)
 if string_number[0] == '-':
     sign = -1
 else:
-    sign == 1
+    sign = 1
 
 len_number = len(string_number)
 digit = int(string_number[len_number - 1]) * sign
