@@ -6,7 +6,5 @@ while index > 96:
         a = 0
     else:
         a = 32
-        
     print("{}".format(chr(index - a)), end='')
     index -= 1
-
