@@ -45,11 +45,14 @@ class Square:
         Args:
             value(tuple): cordinates to set position at.
         """
-        if isinstance(value, tuple):
-            for i in value:
-                if not isinstance(i, int) or i < 0:
-                    raise TypeError("position must be a tuple of \
-                            2 positive integers")
+        if type(value) is tuple:
+            a, b = value
+            if ((type(a) != int) or (type(b) != int)):
+                raise TypeError("position must be a tuple of \
+                        2 positive integers")
+            if (a < 0 or b < 0):
+                raise TypeError("position must be a tuple of \
+                        2 positive integers")
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
