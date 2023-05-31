@@ -22,14 +22,14 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """sets the size of the squre.
+        """sets the size of the square.
 
         Args:
             value(int): value to set as size.
         """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("Size must be an integer")
-        if (value < 0):
+        elif value < 0:
             raise ValueError("Size must be >= 0")
         self.__size = value
 
@@ -45,14 +45,14 @@ class Square:
         Args:
             value(tuple): cordinates to set position at.
         """
-        if (type(value) != tuple or len(value) != 2):
+        if (not isinstance(value, tuple) or len(value) != 2):
             raise TypeError("position must be a tuple of \
                     2 positive integers")
-        for n in range(len(value)):
-            if (type(value[n]) != int):
+        for n in value:
+            if not isinstance(n, int):
                 raise TypeError("position must be a tuple of \
                         2 positive integers")
-            if (value[n] < 0):
+            if n < 0:
                 raise TypeError("position must be a tuple of \
                         2 positive integers")
         self.__position = value
