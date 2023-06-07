@@ -96,6 +96,10 @@ class Rectangle:
         Args:
             size(int): the width and height of the new Rectangle.
         """
+        if size < 0:
+            raise ValueError("size must be greater than zero")
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
         return (cls(size, size))
 
     def __str__(self):
