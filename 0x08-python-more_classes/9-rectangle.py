@@ -91,12 +91,12 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """returns  new Rectangle instance with width and height equal to size.
+        """returns new Rectangle instance with width and height equal to size.
 
         Args:
             size(int): the width and height of the new Rectangle.
         """
-        return cls(size, size)
+        return (cls(size, size))
 
     def __str__(self):
         """prints the rectangle with character stored in print_symbol"""
