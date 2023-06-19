@@ -12,6 +12,11 @@ class Rectangle(Base):
         x(int): x cordinate of the rectangl.
         y(int): y cordinate of the rectangle.
         id(int): identity of the newly instantiated rectangle.
+
+    Raises:
+        TypeError: if any of the input in not an integer.
+        ValueError: if either width or height is <= 0.
+        ValueError: if x or y is < 0.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -30,9 +35,9 @@ class Rectangle(Base):
     def width(self, value):
         """sets the value of width"""
         if type(value) != int:
-            raise TypeError("width must be and integer")
-        if value < 0:
-            raise ValueError("width must be greater than 0")
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -44,9 +49,9 @@ class Rectangle(Base):
     def height(self, value):
         """sets the value of height"""
         if type(value) != int:
-            raise TypeError("height must be and integer")
-        if value < 0:
-            raise ValueError("height must be greater than 0")
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -60,7 +65,7 @@ class Rectangle(Base):
         if type(value) != int:
             raise TypeError("x must be and integer")
         if value < 0:
-            raise ValueError("x must be greater than 0")
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -74,5 +79,5 @@ class Rectangle(Base):
         if type(value) != int:
             raise TypeError("y must be and integer")
         if value < 0:
-            raise ValueError("y must be greater than 0")
+            raise ValueError("y must be >= 0")
         self.__y = value
