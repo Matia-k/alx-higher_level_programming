@@ -63,7 +63,7 @@ class Rectangle(Base):
     def x(self, value):
         """sets the value of x"""
         if type(value) != int:
-            raise TypeError("x must be and integer")
+            raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
@@ -73,11 +73,11 @@ class Rectangle(Base):
         """returns the y cordinate of the rectangle."""
         return self.__y
 
-    @width.setter
+    @y.setter
     def y(self, value):
         """sets the value of y"""
         if type(value) != int:
-            raise TypeError("y must be and integer")
+            raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
