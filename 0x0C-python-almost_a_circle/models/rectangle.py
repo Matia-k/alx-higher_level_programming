@@ -102,6 +102,11 @@ class Rectangle(Base):
                 self.y, self.width, self.height))
 
     def update(self, *args):
+        """updates the attributes of the rectangle.
+
+        Args:
+            *args(ints): a tuple of arguments to assign as attributes.
+        """
         if len(args) != 0:
             i = 0
             for arg in args:
