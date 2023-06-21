@@ -101,11 +101,12 @@ class Rectangle(Base):
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
                 self.y, self.width, self.height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """updates the attributes of the rectangle.
 
         Args:
-            *args(ints): a tuple of arguments to assign as attributes.
+            *args(tuple): a tuple of arguments to assign as attributes.
+            **kwargs(dict): key-value pairs of the new attributes.
         """
         if len(args) != 0:
             i = 0
@@ -121,3 +122,15 @@ class Rectangle(Base):
                 elif i == 4:
                     self.y = arg
                 i += 1
+        elif (not args) or len(args) == 0 and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    self.id = v
+                elif k == "width":
+                    self.width = v
+                elif k == "height":
+                    self.height = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = v
