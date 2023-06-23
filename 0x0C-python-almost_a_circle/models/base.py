@@ -3,6 +3,7 @@
 import json
 import csv
 
+
 class Base:
     """A class that will be the “base” of all other classes in this project.
 
@@ -40,10 +41,8 @@ class Base:
         Args:
             list_objs(list): list of instances which inherits from base.
         """
-        filename = cls.__name__ + ".json"
-        with open(filename, "w") as jfile:
-            if list_objs is None:
-                jfile.write("[]")
-            else:
-                list_of_dicts = [obj.to_dictionary() for obj in list_objs]
-                jfile.write(Base.to_json_string(list_of_dicts))
+        dict_list = []
+        if list_objs is not None:
+            dict_list = [obj.to_dictionary() for obj in list_objs]
+        with open("{}.json".format(cls.__name__), "w") as filename:
+            filename.write(cls.to_json_string(dict_list))
