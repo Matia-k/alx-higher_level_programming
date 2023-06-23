@@ -34,7 +34,7 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
-    @staticmethod
+    @classmethod
     def save_to_file(cls, list_objs):
         """writes the JSON string representation of list_objs to a file.
 
@@ -46,3 +46,24 @@ class Base:
             dict_list = [obj.to_dictionary() for obj in list_objs]
         with open("{}.json".format(cls.__name__), "w") as filename:
             filename.write(cls.to_json_string(dict_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """eturns the list of the JSON string representation"""
+        if json_string is None or json_string == "[]":
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set"""
+        if cls.__name__ == "Rectangle":
+            new = cls(1, 1)
+        if cls.__name__ == "Square":
+            new = cls(1)
+        new.update(**dictionary)
+        return new
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
