@@ -1,3 +1,2 @@
 -- Creates a table in the current database in a MySQL server.
--- Scripts should not fail if the table already exitst.
-CREATE IF NOT EXISTS `first_table` (`id` INT, `name` VARCHAR(256));
+CREATE TABLE IF NOT EXISTS first_table (id INT, name VARCHAR(256));
