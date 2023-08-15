@@ -1,9 +1,6 @@
 #!/usr/bin/node
 function add (a, b) {
-  if (isNaN(Number(a)) || isNaN(Number(b))) {
-    console.error('NaN');
-  } else {
-    console.log(Number(a) + Number(b));
-  }
+  return a + b;
 }
-add(process.argv[2], process.argv[3]);
+
+console.log(add(Number(process.argv[2]), Number(process.argv[3])));
